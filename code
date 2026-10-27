@@ -1,0 +1,487 @@
+#include<stdio.h>
+#include<stdlib.h>
+void booking();
+void my_bookings();
+void cancel();
+int n; // global variable to store number of passengers
+void main()
+{
+    int co;  // variable to store user choice
+    while(1)  // infinite loop to display menu until user chooses to exit
+    {
+        printf("RAILWAY TICKET RESERVATION\n");
+        printf("\n 1. Book your ticket here\n 2. Cancel\n 3. Exit\n\nEnter a choice :");
+        scanf("%d",&co);
+        printf("\n\n\n\n");
+        if(co>3)  // check if user entered an invalid choice
+        {
+            printf("INVALID SELECTION\n\n");
+        }
+        else if(n==0 && co!=1)  // check if user hasn't booked any tickets and tries to access options other than booking
+        {
+            printf("\n ** No booking is done ** \n\n");
+            continue;  // jump to the start of the loop to display the menu again
+        }
+        els 
+
+        {
+            switch(co)  // execute the chosen option
+            {
+                case 1: printf("Enter number of passengers : ");
+                        scanf("%d",&n);
+                        booking(n); // call the booking function with number of passengers as argument
+                        break;
+                case 2 : printf("YOUR BOOKING HAS BEEN CANCELLED\n***VISIT AGAIN***\n\n");
+                        break;
+                case 3: printf("YOUR TICKET HAS BEEN BOOKED\n");
+                         printf("***HAPPY JOURNEY***\n\n");
+                        exit(0); // exit the program with a success status code
+            }
+        }
+    }
+}
+// Function definition to book a railway ticket
+void booking(int n)
+{
+    struct c  // Define a structure to store passenger details
+    {
+        char name[100];
+        char gender[10];
+        int age;
+        long int ph;
+    } s[10];
+    {
+        int i,j;
+	// Get passenger details
+        printf("\nEnter the details of passenger :::\n\n");
+        for(i=0;i<n;i++)
+        {
+            printf("ENTER PASSENGER %d DETAILS\n\n",i+1);
+            printf("Enter name : ");
+            scanf("%s",s[i].name);
+            printf("Enter gender : ");
+            scanf("%s",s[i].gender);
+            printf("Enter age : ");
+            scanf("%d",&s[i].age);
+            printf("Enter mobile number : ");
+            scanf("%ld",&s[i].ph);
+            printf("\n");
+        } // Get train details
+        char source[20], destination[50];
+        printf("\nEnter train details:\n");
+        printf("Enter source : ");
+        scanf("%s",source);
+        printf("Enter destination : ");
+        scanf("%s",destination);
+        int coh;
+        int sel;
+	// Get train and coach details
+        while(1)
+        {
+            printf("Enter your train\n\n");
+            printf("1.jan Shatabdi \n2.Thalaguppa \n3.Siddaganga \n4.Vande Bharath\n5.Maharajas Express\n6.Samjhauta Express\n7.Maitree Express\n8.Rajdhani Express\n9.Chennai Express\n10.SSVT SUPER FAST EXPRESS\n\n");
+            printf("Enter your choice : ");
+            scanf("%d",&sel); 
+
+         printf("\n\n\n\n");
+	// Check for invalid train selection
+            if (sel>10)
+            {
+            	printf("INVALID SELECTION\n\n");
+            	continue;
+            }
+            else
+            {
+// Get coach details
+            while(1)
+            {
+                printf("Enter the type of coach\n\n");
+                printf("1.chair car \n2.AC chair car \n3.sleeper \n4.AC sleeper \n\n");
+                printf("Enter your choice : ");
+                scanf("%d",&coh);
+                printf("\n\n\n\n\n");
+                if (coh>4)  // Check for invalid coach selection
+                {
+                	printf("INVALID SELECTION\n\n");
+                	continue;
+                }
+            else
+            { // Print ticket details
+            printf ("\t\t\t********TICKET DETAILS********\n");
+            printf("\t\t________________________________________________\n\n");
+            switch(sel)
+	        {
+        		case 1 :
+        		            for(i=0; i<n; i++)
+        		            {  
+            		            printf("\t\t\t\tPassenger: %d\n\n",i+1);
+            		            printf("\t\t\t\tPassenger name: %s\n",s[i].name);
+            		            printf("\t\t\t\tgender: %s\n",s[i].gender);
+            		            printf("\t\t\t\tage: %d\n",s[i].age);
+            		            printf("\t\t\t\tMobile no. : %ld\n\n\n",s[i].ph);
+        		            }
+                		         printf("\t\t\t\t*JAN SHATABDI EXPRESS*\n");
+                		         printf("\t\t\t_________________________________\n");
+                		         printf("\t\t\t\tTRAIN NO : 142036\n");
+                		         printf("\t\t\t\tTIME : 18:00\n");
+                		         printf("\t\t\t\tFROM :%s to %s\n",source,destination);
+                		         if(coh == 1)
+        		                {
+                		            printf("\t\t\t\tCOACH : Chair car\n");
+                		            printf("\t\t\t\tAMOUNT : 135\n\n\n\n");
+                		        }
+                		        else if(coh == 2)
+                		          {
+                		              printf("\t\t\t\tCOACH : AC Chair car\n");
+                		            printf("\t\t\t\tAMOUNT : 200\n\n\n\n");
+                		          }
+                		         else if(coh == 3)
+                		         {
+                		            printf("\t\t\t\tCOACH : sleeper\n");
+                		            printf("\t\t\t\tAMOUNT : 190\n\n\n\n");
+                		         }
+                		        else
+                		          {
+                		              printf("\t\t\t\tCOACH : AC sleeper\n");
+                		            printf("\t\t\t\tAMOUNT : 250\n\n\n\n");                		          } 
+
+                		        break;
+        		        
+        		case 2 :
+        		            for(i=0; i<n; i++)
+            		        { 
+            		            printf("\t\t\t\tPassenger: %d\n\n",i+1);
+            		            printf("\t\t\t\tPassenger name: %s\n",s[i].name);
+            		            printf("\t\t\t\tgender: %s\n",s[i].gender);
+            		            printf("\t\t\t\tage: %d\n",s[i].age);
+            		            printf("\t\t\t\tMobile no. : %ld\n\n\n",s[i].ph);
+            		        }
+                		         printf("\t\t\t\t*THALAGUPPA EXPRESS* \n");
+                		         printf("\t\t\t_________________________________\n");
+                		         printf("\t\t\t\tTRAIN NO : 500612\n");
+                		         printf("\t\t\t\tTIME : 15:00\n");
+                		         printf("\t\t\t\tFROM :%s to %s\n",source,destination);
+                		         if(coh == 1)
+                		         {
+                		            printf("\t\t\t\tCOACH : Chair car\n");
+                		            printf("\t\t\t\tAMOUNT : 120\n\n\n\n");
+                		         }
+                		        else if(coh == 2)
+                		        {
+                		            printf("\t\t\t\tCOACH : AC Chair car\n");
+                		            printf("\t\t\t\tAMOUNT : 150\n\n\n\n");
+                		        }
+                		         else if(coh == 3)
+                		         {
+                		            printf("\t\t\t\tCOACH : sleeper\n");
+                		            printf("\t\t\t\tAMOUNT : 160\n\n\n\n");
+                		         }
+                		        else
+                		        {
+                		            printf("\t\t\t\tCOACH : AC sleeper\n");
+                		            printf("\t\t\t\tAMOUNT : 200\n\n\n\n");
+                		        }
+                		        break;
+        		        
+        		case 3 :
+        		            for(i=0; i<n; i++)
+        		        { 
+        		            printf("\t\t\t\tPassenger: %d\n\n",i+1);
+        		            printf("\t\t\t\tPassenger name: %s\n",s[i].name);
+        		            printf("\t\t\t\tgender: %s\n",s[i].gender);
+        		            printf("\t\t\t\tage: %d\n",s[i].age);
+        		            printf("\t\t\t\tMobile no : %ld\n\n\n",s[i].ph);
+        		        }
+            		         printf("\t\t\t\t*SIDDAGANGA EXPRESS*\n");
+            		         printf("\t\t\t_________________________________\n");
+            		         printf("\t\t\t\tTRAIN NO : 105020\n");
+            		         printf("\t\t\t\tTIME : 12:30\n");
+            		         printf("\t\t\t\tFROM :%s to %s\n",source,destination);
+            		         if(coh == 1)
+            		         {
+            		            printf("\t\t\t\tCOACH : Chair car\n");
+            		            printf("\t\t\t\tAMOUNT : 120\n\n\n\n");
+            		         }
+            		        else if(coh == 2)
+            		        {
+            		            printf("\t\t\t\tCOACH : AC Chair car\n");
+            		            printf("\t\t\t\tAMOUNT : 160\n\n\n\n"); 
+
+            		        }
+            		         else if(coh == 3)
+            		         {
+            		            printf("\t\t\t\tCOACH : sleeper\n");
+            		            printf("\t\t\t\tAMOUNT : 180\n\n\n\n");
+            		         }
+            		        else
+            		        {
+            		            printf("\t\t\t\tCOACH : AC sleeper\n");
+            		            printf("\t\t\t\tAMOUNT : 220\n\n\n\n");
+            		        }
+            		        break;
+        		        
+        		case 4 :
+        		            for(i=0; i<n; i++)
+        		        { 
+        		            printf("\t\t\t\tPassenger: %d\n\n",i+1);
+        		            printf("\t\t\t\tPassenger name: %s\n",s[i].name);
+        		            printf("\t\t\t\tgender: %s\n",s[i].gender);
+        		            printf("\t\t\t\tage: %d\n",s[i].age);
+        		            printf("\t\t\t\tMobile no. : %ld\n\n\n",s[i].ph);
+        		        }
+            		         printf("\t\t\t\t*VANDE BHARATH EXPRESS*\n");
+            		         printf("\t\t\t_________________________________\n");
+            		         printf("\t\t\t\tTRAIN NO : 788974\n");
+            		         printf("\t\t\t\tTIME : 20:30\n");
+            		         printf("\t\t\t\tFROM :%s to %s\n",source,destination);
+            		         if(coh == 1)
+            		         {
+            		            printf("\t\t\t\tCOACH : Chair car\n");
+            		            printf("\t\t\t\tAMOUNT : 200\n\n\n\n");
+            		         }
+            		        else if(coh == 2)
+            		        {
+            		            printf("\t\t\t\tCOACH : AC Chair car\n");
+            		            printf("\t\t\t\tAMOUNT : 360\n\n\n\n");
+            		        }
+            		         else if(coh == 3)
+            		         {
+            		            printf("\t\t\t\tCOACH : sleeper\n");
+            		            printf("\t\t\t\tAMOUNT : 400\n\n\n\n");
+            		         }
+            		        else
+            		        {
+            		            printf("\t\t\t\tCOACH : AC sleeper\n");
+            		            printf("\t\t\t\tAMOUNT : 560\n\n\n\n");
+            		        }
+            		        break;
+        		        
+        		 case 5 :
+        		            for(i=0; i<n; i++)
+        		            {  
+        		            printf("\t\t\t\tPassenger: %d\n\n",i+1);
+        		            printf("\t\t\t\tPassenger name: %s\n",s[i].name);
+        		            printf("\t\t\t\tgender: %s\n",s[i].gender);
+        		            printf("\t\t\t\tage: %d\n",s[i].age);
+        		            printf("\t\t\t\tMobile no. : %ld\n\n\n",s[i].ph);
+        		            }
+        		         printf("\t\t\t\t*Maharajas Express*\n");
+        		         printf("\t\t\t_________________________________\n");
+        		         printf("\t\t\t\tTRAIN NO : 165897\n"); 
+
+        		         printf("\t\t\t\tTIME : 08:00\n");
+        		         printf("\t\t\t\tFROM :%s to %s\n",source,destination);
+        		         if(coh == 1)
+        		         {
+        		            printf("\t\t\t\tCOACH : Chair car\n");
+        		            printf("\t\t\t\tAMOUNT : 135\n\n\n\n");
+        		         }
+        		        else if(coh == 2)
+        		          {
+        		              printf("\t\t\t\tCOACH : AC Chair car\n");
+        		            printf("\t\t\t\tAMOUNT : 200\n\n\n\n");
+        		          }
+        		         else if(coh == 3)
+        		         {
+        		            printf("\t\t\t\tCOACH : sleeper\n");
+        		            printf("\t\t\t\tAMOUNT : 190\n\n\n\n");
+        		         }
+        		        else
+        		          {
+        		              printf("\t\t\t\tCOACH : AC sleeper\n");
+        		            printf("\t\t\t\tAMOUNT : 250\n\n\n\n");
+        		          }
+        		        break;
+        		        
+        		case 6 :
+        		            for(i=0; i<n; i++)
+        		            {  
+        		            printf("\t\t\t\tPassenger: %d\n\n",i+1);
+        		            printf("\t\t\t\tPassenger name: %s\n",s[i].name);
+        		            printf("\t\t\t\tgender: %s\n",s[i].gender);
+        		            printf("\t\t\t\tage: %d\n",s[i].age);
+        		            printf("\t\t\t\tMobile no. : %ld\n\n\n",s[i].ph);
+        		            }
+        		         printf("\t\t\t\t*Samjhauta Express*\n");
+        		         printf("\t\t\t_________________________________\n");
+        		         printf("\t\t\t\tTRAIN NO : 135489\n");
+        		         printf("\t\t\t\tTIME : 11:00\n");
+        		         printf("\t\t\t\tFROM :%s to %s\n",source,destination);
+        		         if(coh == 1)
+        		         {
+        		            printf("\t\t\t\tCOACH : Chair car\n");
+        		            printf("\t\t\t\tAMOUNT : 150\n\n\n\n");
+        		         }
+        		        else if(coh == 2)
+        		          {
+        		              printf("\t\t\t\tCOACH : AC Chair car\n");
+        		            printf("\t\t\t\tAMOUNT : 250\n\n\n\n");
+        		          }
+        		         else if(coh == 3)
+        		         {
+        		            printf("\t\t\t\tCOACH : sleeper\n");
+        		            printf("\t\t\t\tAMOUNT : 260\n\n\n\n");
+        		         }
+        		        else
+        		          {
+        		              printf("\t\t\t\tCOACH : AC sleeper\n");
+        		            printf("\t\t\t\tAMOUNT : 320\n\n\n\n");
+        		          }
+        		        break;
+        		        
+        		case 7 : 
+
+        		            for(i=0; i<n; i++)
+        		            {  
+        		            printf("\t\t\t\tPassenger: %d\n\n",i+1);
+        		            printf("\t\t\t\tPassenger name: %s\n",s[i].name);
+        		            printf("\t\t\t\tgender: %s\n",s[i].gender);
+        		            printf("\t\t\t\tage: %d\n",s[i].age);
+        		            printf("\t\t\t\tMobile no. : %ld\n\n\n",s[i].ph);
+        		            }
+        		         printf("\t\t\t\t*Maitree Express*\n");
+        		         printf("\t\t\t_________________________________\n");
+        		         printf("\t\t\t\tTRAIN NO : 345896\n");
+        		         printf("\t\t\t\tTIME : 13:00\n");
+        		         printf("\t\t\t\tFROM :%s to %s\n",source,destination);
+        		         if(coh == 1)
+        		         {
+        		            printf("\t\t\t\tCOACH : Chair car\n");
+        		            printf("\t\t\t\tAMOUNT : 185\n\n\n\n");
+        		         }
+        		        else if(coh == 2)
+        		          {
+        		              printf("\t\t\t\tCOACH : AC Chair car\n");
+        		            printf("\t\t\t\tAMOUNT : 240\n\n\n\n");
+        		          }
+        		         else if(coh == 3)
+        		         {
+        		            printf("\t\t\t\tCOACH : sleeper\n");
+        		            printf("\t\t\t\tAMOUNT : 300\n\n\n\n");
+        		         }
+        		        else
+        		          {
+        		              printf("\t\t\t\tCOACH : AC sleeper\n");
+        		            printf("\t\t\t\tAMOUNT : 450\n\n\n\n");
+        		          }
+        		        break;
+        		        
+        		case 8 :
+        		            for(i=0; i<n; i++)
+        		            {  
+        		            printf("\t\t\t\tPassenger: %d\n\n",i+1);
+        		            printf("\t\t\t\tPassenger name: %s\n",s[i].name);
+        		            printf("\t\t\t\tgender: %s\n",s[i].gender);
+        		            printf("\t\t\t\tage: %d\n",s[i].age);
+        		            printf("\t\t\t\tMobile no. : %ld\n\n\n",s[i].ph);
+        		            }
+        		         printf("\t\t\t\t*Rajdhani Express*\n");
+        		         printf("\t\t\t_________________________________\n");
+        		         printf("\t\t\t\tTRAIN NO : 756214\n");
+        		         printf("\t\t\t\tTIME : 23:30\n");
+        		         printf("\t\t\t\tFROM :%s to %s\n",source,destination);
+        		         if(coh == 1)
+        		         {
+        		            printf("\t\t\t\tCOACH : Chair car\n");
+        		            printf("\t\t\t\tAMOUNT : 175\n\n\n\n");
+        		         }
+        		        else if(coh == 2)
+        		          {
+        		              printf("\t\t\t\tCOACH : AC Chair car\n");
+        		            printf("\t\t\t\tAMOUNT : 230\n\n\n\n");
+        		          }
+        		         else if(coh == 3)
+        		         { 
+
+        		            printf("\t\t\t\tCOACH : sleeper\n");
+        		            printf("\t\t\t\tAMOUNT : 300\n\n\n\n");
+        		         }
+        		        else
+        		          {
+        		              printf("\t\t\t\tCOACH : AC sleeper\n");
+        		            printf("\t\t\t\tAMOUNT : 400\n\n\n\n");
+        		          }
+        		        break;
+        		case 9 :
+        		            for(i=0; i<n; i++)
+        		            {  
+        		            printf("\t\t\t\tPassenger: %d\n\n",i+1);
+        		            printf("\t\t\t\tPassenger name: %s\n",s[i].name);
+        		            printf("\t\t\t\tgender: %s\n",s[i].gender);
+        		            printf("\t\t\t\tage: %d\n",s[i].age);
+        		            printf("\t\t\t\tMobile no. : %ld\n\n\n",s[i].ph);
+        		            }
+        		         printf("\t\t\t\t*Chennai Express*\n");
+        		         printf("\t\t\t_________________________________\n");
+        		         printf("\t\t\t\tTRAIN NO : 985462\n");
+        		         printf("\t\t\t\tTIME : 13:20\n");
+        		         printf("\t\t\t\tFROM :%s to %s\n",source,destination);
+        		         if(coh == 1)
+        		         {
+        		            printf("\t\t\t\tCOACH : Chair car\n");
+        		            printf("\t\t\t\tAMOUNT : 135\n\n\n\n");
+        		         }
+        		        else if(coh == 2)
+        		          {
+        		              printf("\t\t\t\tCOACH : AC Chair car\n");
+        		            printf("\t\t\t\tAMOUNT : 200\n\n\n\n");
+        		          }
+        		         else if(coh == 3)
+        		         {
+        		            printf("\t\t\t\tCOACH : sleeper\n");
+        		            printf("\t\t\t\tAMOUNT : 190\n\n\n\n");
+        		         }
+        		        else
+        		          {
+        		              printf("\t\t\t\tCOACH : AC sleeper\n");
+        		            printf("\t\t\t\tAMOUNT : 250\n\n\n\n");
+        		          }
+        		        break;
+        		        
+        		case 10 :
+        		            for(i=0; i<n; i++)
+        		            {  
+        		            printf("\t\t\t\tPassenger: %d\n\n",i+1);
+        		            printf("\t\t\t\tPassenger name: %s\n",s[i].name);
+        		            printf("\t\t\t\tgender: %s\n",s[i].gender);
+        		            printf("\t\t\t\tage: %d\n",s[i].age);
+        		            printf("\t\t\t\tMobile no. : %ld\n\n\n",s[i].ph);
+        		            }
+        		         printf("\t\t\t\t**SSVT SUPER FAST EXPRESS**\n");
+        		         printf("\t\t\t_______________________________________\n");
+        		         printf("\t\t\t\tTRAIN NO : 14354\n");
+        		         printf("\t\t\t\tTIME : 24:00\n");
+        		         printf("\t\t\t\tFROM :%s to %s\n",source,destination);
+        		         if(coh == 1)
+        		         { 
+
+        		            printf("\t\t\t\tCOACH : Chair car\n");
+        		            printf("\t\t\t\tAMOUNT : 250\n\n\n\n");
+        		         }
+        		        else if(coh == 2)
+        		          {
+        		              printf("\t\t\t\tCOACH : AC Chair car\n");
+        		            printf("\t\t\t\tAMOUNT : 500\n\n\n\n");
+        		          }
+        		         else if(coh == 3)
+        		         {
+        		            printf("\t\t\t\tCOACH : sleeper\n");
+        		            printf("\t\t\t\tAMOUNT : 750\n\n\n\n");
+        		         }
+        		        else
+        		          {
+        		              printf("\t\t\t\tCOACH : AC sleeper\n");
+        		            printf("\t\t\t\tAMOUNT : 800\n\n\n\n");
+        		          }
+        		        break;
+        		 }
+		 break;
+	}
+	}
+		 break;
+    }
+        
+    }
+    printf("\t\t\t\t****THANK YOU****\n\n");
+}
+}
